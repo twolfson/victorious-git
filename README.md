@@ -7,9 +7,9 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
 **Features:**
 
 - Plays fanfare on resolution of `git` conflicts from:
-    - `merge`
-    - `rebase`
-    - `cherry-pick`
+    - [x] `merge`
+    - [ ] `rebase` (pending testing)
+    - [ ] `cherry-pick` (pending testing)
 - Doesn't play fanfare on trivial merge (i.e. no conflicts/conflicts automatically resolved)
 - Cross-platform support on GNU/Linux and OS X
 - Play custom fanfare
