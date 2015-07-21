@@ -31,7 +31,7 @@ We are overriding the entire `.git/hooks` folder default ([typically full of sam
 The following installs `victorious-git` to `~/.config/victorious-git` and sets up a **user-wide** `init.templatedir`.
 
 ```bash
-(cd /tmp/ && git clone --depth 1 https://github.com/twolfson/victorious-git && cd victorious-git && bin/install.sh)
+(cd /tmp/ && git clone --depth 1 https://github.com/twolfson/victorious-git && cd victorious-git/ && bin/install.sh)
 ```
 
 ```
@@ -52,6 +52,18 @@ cp hooks/* "$target_dir"
 - TODO: List out cases we cover (e.g. merge, rebase?, cherry-pick?)
 - TODO: Add tests with custom player (effectively `true` or maybe script that writes out to a file?)
 
+### Adding `victorious-git` to existing repositories
+```bash
+git clone https://github.com/twolfson/victorious-git
+cd victorious-git/
+bin/overwrite-git-hooks.sh "~/github/*"
+```
+
+### Upgrading
+```
+(cd /tmp/ && git clone --depth 1 https://github.com/twolfson/victorious-git && cd victorious-git && bin/upgrade.sh)
+# Only `rm hooks/*` so that both normal and symlinks work
+```
 
 ### Living with symlinks
 By using symlinks, we can retroactively apply changes to `victorious-git` bound repositories upon upgrade.
@@ -60,11 +72,17 @@ This is very dangerous because it effectively makes all `.git` repositories shar
 
 #### One line install
 ```
+git clone https://github.com/twolfson/victorious-git
+cd victorious-git/
 USE_SYMLINKS=TRUE bin/install.sh
 ```
 
-### Upgrading
-
+### Adding `victorious-git` to existing repositories
+```bash
+git clone https://github.com/twolfson/victorious-git
+cd victorious-git/
+USE_SYMLINKS=TRUE bin/overwrite-git-hooks.sh "~/github/*"
+```
 
 ## Documentation
 _(Coming soon)_
