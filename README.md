@@ -2,6 +2,8 @@
 
 Play fanfare after triumphing over `git` conflicts
 
+This is heavily inspired by @DanaDanger's `victorious-merge`
+
 ## Getting Started
 - TODO: Base off of `sexy-bash-prompt`
 - TODO: During installation, install hooks via git-template-dir
