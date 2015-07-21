@@ -52,6 +52,20 @@ cp hooks/* "$target_dir"
 - TODO: List out cases we cover (e.g. merge, rebase?, cherry-pick?)
 - TODO: Add tests with custom player (effectively `true` or maybe script that writes out to a file?)
 
+
+### Living with symlinks
+By using symlinks, we can retroactively apply changes to `victorious-git` bound repositories upon upgrade.
+
+This is very dangerous because it effectively makes all `.git` repositories share the same `hooks/` folder. This means adding a hook in `~/repo1/.git/hooks/prepare-commit-msg` will add the hook to `~/repo2/.git/hooks`.
+
+#### One line install
+```
+USE_SYMLINKS=TRUE bin/install.sh
+```
+
+### Upgrading
+
+
 ## Documentation
 _(Coming soon)_
 
