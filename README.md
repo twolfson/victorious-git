@@ -15,6 +15,8 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
 - Play custom fanfare
 - Support for `git>=1.7` and `git>=2.0`
 
+// TODO: Define `play-victory.sh` to test out new sounds
+
 ## Getting Started
 ### Preface
 Before we get to the fun part (runnning this), we should cover what's going on and the reprecussions. We are using a setting in `git` known as `init.templatedir`. As the name implies, this is a folder that is used to initialize all future `.git` folders.
@@ -24,6 +26,23 @@ We are overriding the entire `.git/hooks` folder default ([typically full of sam
 [git-hooks-default]: https://github.com/git/git/tree/v2.4.6/templates
 
 ## `victorious-git` adjusts with your `.git/hooks` folder for all future repositories. Please take caution and be aware that this will adjust future `.git/hooks` interactions, such as before/after commits occur.
+
+### One line install
+The following installs `victorious-git` to `~/.config/victorious-git` and sets up a **user-wide** `init.templatedir`.
+
+```bash
+(cd /tmp/ && git clone --depth 1 https://github.com/twolfson/victorious-git && cd victorious-git && bin/install.sh)
+```
+
+```
+# TODO: Download sound
+# TODO: Allow sound customization
+# TODO: install.sh
+target_dir="~/.config/victorious-git/templatedir/"
+mkdir -p "$target_dir"
+cp hooks/* "$target_dir"
+"$target_dir/hooks/play-victory.sh" # Congrats on successful install ;)
+```
 
 - TODO: Base off of `sexy-bash-prompt`
 - TODO: During installation, install hooks via git-template-dir
