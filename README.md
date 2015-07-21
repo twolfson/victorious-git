@@ -16,6 +16,15 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
 - Support for `git>=1.7` and `git>=2.0`
 
 ## Getting Started
+### Preface
+Before we get to the fun part (runnning this), we should cover what's going on and the reprecussions. We are using a setting in `git` known as `init.templatedir`. As the name implies, this is a folder that is used to initialize all future `.git` folders.
+
+We are overriding the entire `.git/hooks` folder default ([typically full of samples][git-hooks-default]). As a result, we will also be conflicting with per-repo hooks (e.g. some teams like to enforce linting on each commit). So here is your warning:
+
+[git-hooks-default]: https://github.com/git/git/tree/v2.4.6/templates
+
+**`victorious-git` adjusts with your `.git/hooks` folder for all future repositories. Please take caution and be aware that this will adjust future `.git/hooks` interactions, such as before/after commits occur.**
+
 - TODO: Base off of `sexy-bash-prompt`
 - TODO: During installation, install hooks via git-template-dir
     - Prob make `hooks/` our main directory (e.g. our `lib/`)?
