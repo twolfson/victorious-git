@@ -4,6 +4,16 @@ Play fanfare after triumphing over `git` conflicts
 
 This is heavily inspired by @DanaDanger's `victorious-merge`
 
+**Features:**
+
+- Plays fanfare on resolution of `git` conflicts from:
+    - `merge`
+    - `rebase`
+    - `cherry-pick`
+- Cross-platform support on GNU/Linux and OS X
+- Play custom fanfare
+- Support for `git>=1.7` and `git>=2.0`
+
 ## Getting Started
 - TODO: Base off of `sexy-bash-prompt`
 - TODO: During installation, install hooks via git-template-dir
