@@ -50,6 +50,7 @@ cp hooks/* "$target_dir"
 - TODO: Include instructions on symlinking `hooks` directory for future updates
 - TODO: Allow for overriding with custom sound file during install
 - TODO: List out cases we cover (e.g. merge, rebase?, cherry-pick?)
+- TODO: Add tests with custom player (effectively `true` or maybe script that writes out to a file?)
 
 ## Documentation
 _(Coming soon)_
