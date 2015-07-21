@@ -10,6 +10,7 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
     - `merge`
     - `rebase`
     - `cherry-pick`
+- Doesn't play fanfare on trivial merge (i.e. no conflicts/conflicts automatically resolved)
 - Cross-platform support on GNU/Linux and OS X
 - Play custom fanfare
 - Support for `git>=1.7` and `git>=2.0`
