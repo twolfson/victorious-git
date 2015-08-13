@@ -7,8 +7,8 @@ set -x
 if test "$GIT_VERSION" = "1.7"; then
   # Remove `git-core@1.8` PPA (Travis CI uses this by default)
   # https://launchpad.net/ubuntu/+source/git
-  apt-get install -y ppa-purge
-  ppa-purge -y "ppa:git-core/v1.8"
+  sudo apt-get install -y ppa-purge
+  sudo ppa-purge -y "ppa:git-core/v1.8"
 
   # Assert the git version is correct (e.g. "git version 1.7.*")
   # TODO: Get actual git version output
@@ -30,9 +30,9 @@ elif test "$GIT_VERSION" = "1.8"; then
 elif test "$GIT_VERSION" = "2.x"; then
   # Add our new PPA and install git
   # http://blog.avirtualhome.com/git-ppa-for-ubuntu/
-  add-apt-repository -y "ppa:pdoes/ppa"
-  apt-get -y update
-  apt-get install -y git
+  sudo add-apt-repository -y "ppa:pdoes/ppa"
+  sudo apt-get -y update
+  sudo apt-get install -y git
 
   # Assert the git version is correct (e.g. "git version 2.*.*")
   # TODO: Get actual git version output
