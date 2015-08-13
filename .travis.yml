@@ -1,5 +1,5 @@
 language: bash
-sudo: true # Require sudo for `apt` customization
+sudo: required # Require sudo for `apt` customization
 env:
   - GIT_VERSION="1.7" # Ubuntu Precise stable
   - GIT_VERSION="1.8" # Default `git` provided by Travis CI
