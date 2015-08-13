@@ -17,8 +17,7 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
 
 // TODO: Define `play-victory.sh` to test out new sounds
 
-## Getting Started
-### Warning
+## Warning
 Before we get to the fun part (runnning this), we should cover what's going on and the reprecussions. We are using a setting in `git` known as `init.templatedir`. As the name implies, this is a folder that is used to initialize all future `.git` folders.
 
 We are overriding the entire `.git/hooks` folder default ([typically full of samples][git-hooks-default]). As a result, we will also be conflicting with per-repo hooks (e.g. some teams like to enforce linting on each commit). So here is your warning:
@@ -29,6 +28,7 @@ We are overriding the entire `.git/hooks` folder default ([typically full of sam
 
 **Please take caution and be aware that this will adjust future `.git/hooks` interactions, such as before/after commits occur.**
 
+## Getting Started
 ### One line install
 The following installs `victorious-git` to `~/.config/victorious-git` and sets up a **user-wide** `init.templatedir`.
 
