@@ -16,6 +16,7 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
 - Support for `git>=1.7` and `git>=2.0`
 
 // TODO: Enable Travis CI
+// TODO: Make sure we are testing git>=1.7 and git>=2.0
 
 // TODO: Define `play-victory.sh` to test out new sounds
 
