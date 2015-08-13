@@ -13,6 +13,8 @@ fixture_git_init() {
   git init $* > /dev/null
 }
 
+# Prepend our with a custom "afplay" for testing
+
 # A git directory initialized with victorious-git
 fixture_git_init --template "$repo_dir/dotgit"
 
@@ -21,3 +23,15 @@ fixture_git_init --template "$repo_dir/dotgit"
     echo "\`git\` folder initialized with our template doesn't have our hooks" 1>&2
     exit 1
   fi
+
+  # when we commit
+    # it does not make any noise
+
+  # when we commit with a merge conflict
+    # it plays our victory music upon success
+
+  # when we commit with a merge conflict but the commit fails (e.g. due to lack of a commit message)
+    # it does not play our victory music
+
+# TODO: Test with rebase
+# TODO: Test with cherry pick
