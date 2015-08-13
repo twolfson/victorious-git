@@ -17,7 +17,7 @@ fixture_git_init() {
 fixture_git_init --template "$repo_dir/dotgit"
 
   # has our fixtures
-  if ! ls .git/hooks/post-commit || ! ls .git/hooks/pre-commit; then
+  if ! ls .git/hooks/post-commit > /dev/null || ! ls .git/hooks/pre-commit > /dev/null; then
     echo "\`git\` folder initialized with our template doesn't have our hooks" 1>&2
     exit 1
   fi
