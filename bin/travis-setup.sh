@@ -5,7 +5,17 @@ set -x
 
 # If we are using git@1.7, then remove the existing git and install the Ubuntu default
 if test "$GIT_VERSION" = "1.7"; then
-  # TODO: Assert the git version is correct
+  # Remove `git-core@1.8` PPA (Travis CI uses this by default)
+  sudo apt-get install -y ppa-purge
+  sudo ppa-purge -y "ppa:git-core/v1.8"
+
+  # Assert the git version is correct (e.g. "git version 1.7.*")
+  # TODO: Get actual git version output
+  git_version="$(git --version)"
+  if ! (echo "$git_version" | grep -E "^git version 1.7"); then
+    echo "Expected \`git --version\` to be \"1.7\" but it was \"$git_version\"" 1>&2
+    exit 1
+  fi
 # Otherwise, if we are using git@1.8, then do nothing
 elif test "$GIT_VERSION" = "1.8"; then
   # Assert the git version is correct (e.g. "git version 1.8.5.6")
