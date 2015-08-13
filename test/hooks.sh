@@ -63,6 +63,7 @@ fixture_git_init --template "$repo_dir/dotgit"
   echo "world" > world.txt; git add world.txt; git commit -m "Added world file" > /dev/null
   git checkout HEAD~1 &> /dev/null; git checkout -b dev/conflicting.branch &> /dev/null
   echo "wurld" > world.txt; git add world.txt; git commit -m "Added wurld file" > /dev/null
+  #   Force an empty commit message via `cat /dev/null` (empty string) piped to stdin of `git commit -F -` (use stdin as message)
   git merge master &> /dev/null || true; git checkout HEAD -- world.txt; cat /dev/null | git commit -F - &> /dev/null || true
   # Wait for afplay.out to be written due to forking
   sleep 0.1
@@ -76,7 +77,23 @@ fixture_git_init --template "$repo_dir/dotgit"
 # A git directory initialized with victorious-git
 fixture_git_init --template "$repo_dir/dotgit"
   # when we commit with a merge conflict but the commit fails and we make a non-conflicting commit
+  echo "hello" > hello.txt; git add hello.txt; git commit -m "Added hello file" > /dev/null
+  echo "world" > world.txt; git add world.txt; git commit -m "Added world file" > /dev/null
+  git checkout HEAD~1 &> /dev/null; git checkout -b dev/conflicting.branch &> /dev/null
+  echo "wurld" > world.txt; git add world.txt; git commit -m "Added wurld file" > /dev/null
+  git merge master &> /dev/null || true; git checkout HEAD -- world.txt; cat /dev/null | git commit -F - &> /dev/null || true
+  #  Exit our merge state
+  git reset --hard; git checkout master
+  #  Create our non-conflicting commit
+  echo "moon" > moon.txt; git add moon.txt; git commit -m "Added moon file" > /dev/null
+  # Wait for afplay.out to be written due to forking
+  sleep 0.1
+
     # it does not play our victory music
+    if test -f afplay.out; then
+      echo "\`victorious-git\` played music upon writing a non-conflicting commit after ignoring a merge conflict" 1>&2
+      exit 1
+    fi
 
 # TODO: Test with rebase
 # TODO: Test with cherry pick
