@@ -14,6 +14,7 @@ fixture_git_init() {
 }
 
 # Prepend our with a custom "afplay" for testing
+export PATH="$test_dir/test-files/bin:$PATH"
 
 # A git directory initialized with victorious-git
 fixture_git_init --template "$repo_dir/dotgit"
@@ -25,7 +26,13 @@ fixture_git_init --template "$repo_dir/dotgit"
   fi
 
   # when we commit
+  echo "hello" > hello.txt; git add hello.txt; git commit -m "Added hello file" > /dev/null
+
     # it does not make any noise
+    if test -f afplay.out; then
+      echo "\`victorious-git\` played fanfare on a non-merge commit" 1>&2
+      exit 1
+    fi
 
   # when we commit with a merge conflict
     # it plays our victory music upon success

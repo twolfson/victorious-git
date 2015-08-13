@@ -6,6 +6,6 @@ victory_occurred_filepath="$git_dir/__victory_occurred"
 if test -f "$git_dir/MERGE_HEAD"; then
   touch "$victory_occurred_filepath"
 # Otherwise, wipe out our placeholder file (in case it was there from earlier)
-else
+elif test -f "$victory_occurred_filepath"; then
   rm "$victory_occurred_filepath" &> /dev/null
 fi

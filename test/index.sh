@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-# Exit upon first failure (aka first failing test suite)
-set -e
-
 # Run our tests and verify each has no output
-if ! ./test/hooks.sh &> test/hooks.out; then
-  echo "hooks.sh had non-zero exit code. Here's its output:" 1>&2
+./test/hooks.sh &> test/hooks.out
+exit_code="$?"
+if test "$exit_code" != "0"; then
+  echo "hooks.sh had non-zero exit code \"$exit_code\". Here's its output:" 1>&2
   cat test/hooks.out
   exit 1
 fi
