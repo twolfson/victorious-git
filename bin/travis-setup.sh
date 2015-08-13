@@ -10,9 +10,9 @@ if test "$GIT_VERSION" = "1.7"; then
   sudo apt-get install -y ppa-purge
   sudo ppa-purge -y "ppa:git-core/v1.8"
 
-  # Assert the git version is correct (e.g. "git version 1.7.*")
-  # TODO: Get actual git version output
+  # Assert the git version is correct (e.g. "git version 1.7.9.5")
   git_version="$(git --version)"
+  git_version="git version 1.8"
   if ! (echo "$git_version" | grep -E "^git version 1.7"); then
     echo "Expected \`git --version\` to be \"1.7\" but it was \"$git_version\"" 1>&2
     exit 1
@@ -22,6 +22,7 @@ elif test "$GIT_VERSION" = "1.8"; then
   # Assert the git version is correct (e.g. "git version 1.8.5.6")
   # TODO: Test assertion failures all at the end
   git_version="$(git --version)"
+  git_version="git version 1.6"
   if ! (echo "$git_version" | grep -E "^git version 1.8"); then
     echo "Expected \`git --version\` to be \"1.8\" but it was \"$git_version\"" 1>&2
     exit 1
@@ -34,9 +35,9 @@ elif test "$GIT_VERSION" = "2.x"; then
   sudo apt-get -y update
   sudo apt-get install -y git
 
-  # Assert the git version is correct (e.g. "git version 2.*.*")
-  # TODO: Get actual git version output
+  # Assert the git version is correct (e.g. "git version 2.5.0")
   git_version="$(git --version)"
+  git_version="git version 1.9"
   if ! (echo "$git_version" | grep -E "^git version 2."); then
     echo "Expected \`git --version\` to be \"2.x\" but it was \"$git_version\"" 1>&2
     exit 1
