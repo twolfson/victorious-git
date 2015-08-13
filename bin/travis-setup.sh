@@ -46,3 +46,7 @@ else
   echo "Unrecognized GIT_VERSION \"$GIT_VERSION\". Please either remove it or define it via \`travis-setup.sh\`" 1>&2
   exit 1
 fi
+
+# Configure `git` to know who we are
+git config --global user.email "todd@twolfson.com"
+git config --global user.name "Todd Wolfson (Travis CI)"
