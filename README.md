@@ -22,6 +22,7 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
 
 // TODO: Record screencast (or override "afplay" to say "MUSIC IS PLAYING" in GIF recording)
 https://www.freesound.org/people/Tuudurt/sounds/258142/
+https://www.freesound.org/data/previews/258/258142_4631294-lq.mp3
 
 ## Warning
 Before we get to the fun part (runnning this), we should cover what's going on and the reprecussions. We are using a setting in `git` known as `init.templatedir`. As the name implies, this is a folder that is used to initialize all future `.git` folders.
