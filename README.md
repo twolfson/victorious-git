@@ -25,7 +25,9 @@ We are overriding the entire `.git/hooks` folder default ([typically full of sam
 
 [git-hooks-default]: https://github.com/git/git/tree/v2.4.6/templates
 
-## `victorious-git` adjusts with your `.git/hooks` folder for all future repositories. Please take caution and be aware that this will adjust future `.git/hooks` interactions, such as before/after commits occur.
+## `victorious-git` adjusts with your `.git/hooks` folder for all future repositories.
+
+## Please take caution and be aware that this will adjust future `.git/hooks` interactions, such as before/after commits occur.
 
 ### One line install
 The following installs `victorious-git` to `~/.config/victorious-git` and sets up a **user-wide** `init.templatedir`.
