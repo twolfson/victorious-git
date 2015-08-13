@@ -1,16 +1,16 @@
 language: bash
 env:
-  - GIT_PPA='ppa:git-core/v1.8' # Default `git` provided by Travis CI, see 2c84541
-  - GIT_PPA='ppa:pdoes/ppa' # Near bleeding edge, http://blog.avirtualhome.com/git-ppa-for-ubuntu/
-  - GIT_PPA='1.7.9.5-1' # Ubuntu Precise stable, https://launchpad.net/ubuntu/+source/git
+  - GIT_VERSION="1.7" # Ubuntu Precise stable
+  - GIT_VERSION="1.8" # Default `git` provided by Travis CI
+  - GIT_VERSION="2.x" # git@2.x
+
 before_script:
-  - ./test/before_script.sh # Take care of git version
+  - bin/travis-setup.sh # Take care of git version
   - apt-cache policy git # Determine git PPA source
   - git --version # Spit out the git version
 script:
-  - make test # Run normal test
-  # DEV: Install test is disabled due to Travis CI not closing --login scripts
-  # - make test-install # Run install-specific test
+  # Run our tests
+  - test/index.sh
 
 notifications:
   email: false
