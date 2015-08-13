@@ -9,7 +9,8 @@ if ! ./test/hooks.sh &> test/hooks.out; then
   exit 1
 fi
 if test "$(cat test/hooks.out)" != ""; then
-  echo "hooks.sh had non-empty output. Exiting tests now" 1>&2
+  echo "hooks.sh had non-empty output. Here's its output:" 1>&2
+  cat test/hooks.out
   exit 1
 fi
 
