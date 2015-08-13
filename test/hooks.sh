@@ -83,7 +83,7 @@ fixture_git_init --template "$repo_dir/dotgit"
   echo "wurld" > world.txt; git add world.txt; git commit -m "Added wurld file" > /dev/null
   git merge master &> /dev/null || true; git checkout HEAD -- world.txt; cat /dev/null | git commit -F - &> /dev/null || true
   #  Exit our merge state
-  git reset --hard; git checkout master
+  git reset --hard &> /dev/null; git checkout master &> /dev/null
   #  Create our non-conflicting commit
   echo "moon" > moon.txt; git add moon.txt; git commit -m "Added moon file" > /dev/null
   # Wait for afplay.out to be written due to forking
