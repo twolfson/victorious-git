@@ -15,6 +15,8 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
 - Play custom fanfare
 - Support for `git>=1.7` and `git>=2.0`
 
+// TODO: Enable Travis CI
+
 // TODO: Define `play-victory.sh` to test out new sounds
 
 // TODO: Record screencast (or override "afplay" to say "MUSIC IS PLAYING" in GIF recording)
