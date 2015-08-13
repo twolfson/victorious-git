@@ -7,7 +7,7 @@ if test -f "$victory_occurred_filepath"; then
   # Play fanfare
   fanfare="$git_dir/hooks/victory.mp3"
   if which afplay &> /dev/null; then
-    afplay -v 5 "$fanfare" &> /dev/null &
+    afplay -v 5 "$fanfare"
   elif which mplayer &> /dev/null; then
     mplayer "$fanfare" &> /dev/null &
   else

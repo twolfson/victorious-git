@@ -45,8 +45,8 @@ fixture_git_init --template "$repo_dir/dotgit"
   git checkout HEAD~1; git checkout -b dev/conflicting.branch
   echo "wurld" > world.txt; git add world.txt; git commit -m "Added wurld file" > /dev/null
   #   Perform our merge, declare this branch the victor, and commit with default text
-  # TODO: First fail with no AFPLAY content then get it passing
-  git merge master; git checkout HEAD -- world.txt; git commit --no-edit
+  export VICTORIOUS_GIT_AFPLAY_CONTENT="merge-conflict-success"
+  git merge master || true; git checkout HEAD -- world.txt; git commit --no-edit
 
     # it plays our victory music upon success
     if test "$(cat afplay.out)" != "merge-conflict-success"; then
