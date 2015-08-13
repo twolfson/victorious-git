@@ -42,11 +42,13 @@ fixture_git_init --template "$repo_dir/dotgit"
   echo "hello" > hello.txt; git add hello.txt; git commit -m "Added hello file" > /dev/null
   echo "world" > world.txt; git add world.txt; git commit -m "Added world file" > /dev/null
   #   Add conflicting "world" file on alternative branch
-  git checkout HEAD~1; git checkout -b dev/conflicting.branch
+  git checkout HEAD~1 &> /dev/null; git checkout -b dev/conflicting.branch &> /dev/null
   echo "wurld" > world.txt; git add world.txt; git commit -m "Added wurld file" > /dev/null
   #   Perform our merge, declare this branch the victor, and commit with default text
   export VICTORIOUS_GIT_AFPLAY_CONTENT="merge-conflict-success"
-  git merge master || true; git checkout HEAD -- world.txt; git commit --no-edit
+  git merge master &> /dev/null || true; git checkout HEAD -- world.txt; git commit --no-edit &> /dev/null
+  # Wait for afplay.out to be written due to forking
+  sleep 0.1
 
     # it plays our victory music upon success
     if test "$(cat afplay.out)" != "merge-conflict-success"; then
