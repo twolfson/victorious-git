@@ -10,9 +10,13 @@ if test "$filepath" = ""; then
   exit 1
 fi
 
+# Load in our settings and their overrides
+victorious_git_volume="5"
+if test "$VICTORIOUS_GIT_VOLUME" != ""; then victorious_git_volume="$VICTORIOUS_GIT_VOLUME"; fi
+
 # Determine which player is supported and play from it
 if which afplay &> /dev/null; then
-  afplay -v 5 "$filepath" &> /dev/null
+  afplay -v "$victorious_git_volume" "$filepath" &> /dev/null
 elif which mplayer &> /dev/null; then
   mplayer "$filepath" &> /dev/null
 else
