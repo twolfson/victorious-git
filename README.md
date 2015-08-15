@@ -80,18 +80,40 @@ cd victorious-git/
 bin/install-symlink.sh
 ```
 
-// TODO: Implement me
-
 ### Adding `victorious-git` to existing repositories
+To integrate `victorious-git` in existing `git` repositories, we can use the following commands:
+
 ```bash
-git clone https://github.com/twolfson/victorious-git
-cd victorious-git/
-bin/overwrite-git-hooks.sh "~/github/*"
-# This command expands into:
-bin/overwrite-git-hooks.sh "~/github/*"
+# Inside of our repository (e.g. `victorious-git`)
+# Delete our existing `git` hooks
+rm -r .git/hooks/
+
+# Reinitialize the repository (leverages template directory)
+# This will not destroy `git` history
+git init
+
+# Proof that hooks are installed
+ls .git/hooks/
 ```
 
-// TODO: Complete me
+To run this across multiple projects, we can use:
+
+```bash
+# Iterate over each of our folders
+for repo_dir in {{glob}}; do
+# For example, I store all my projects in `~/github` so this would be:
+# for repo_dir in ~/github/*
+    # Enter the folder
+    cd "$repo_dir"
+
+    # Reinitialize our hooks
+    rm -r .git/hooks/
+    git init
+
+    # Exit the folder
+    cd -
+done
+```
 
 ## Configuration
 ### Music
