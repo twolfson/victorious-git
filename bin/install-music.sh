@@ -11,11 +11,11 @@ if test "$filepath" = ""; then
 fi
 
 # If there is custom music
-if test "$MUSIC_URL" != ""; then
+if test "$VICTORIOUS_GIT_MUSIC_URL" != ""; then
   # Attempt to download it (allow failure)
   echo "Custom music detected. Attempting to download..." 1>&2
   set +e
-  wget "$MUSIC_URL" --output-document "$filepath"
+  wget "$VICTORIOUS_GIT_MUSIC_URL" --output-document "$filepath"
 
   # If it was successful, exit out
   if test "$?" = "0"; then
