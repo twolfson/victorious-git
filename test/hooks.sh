@@ -164,11 +164,43 @@ fixture_git_init --template "$repo_dir/dotgit"
     fi
 
 # A git directory initialized with victorious-git
+fixture_git_init --template "$repo_dir/dotgit"
+
   # when we cherry-pick without a merge conflict
+  #   Add nonconflicting commits
+  add_hello_world_commits
+  add_nonconflicting_branch
+  #   Perform our rebase
+  git cherry-pick master &> /dev/null
+  #   Wait for afplay.out to be written due to forking
+  sleep 0.1
+
     # it does not play our victory music
+    if test -f afplay.out; then
+      echo "\`victorious-git\` played fanfare on a non-conflicting rebase" 1>&2
+      exit 1
+    fi
 
 # A git directory initialized with victorious-git
-  # when we cherry-pick with a merge conflict
-    # it plays our victory music
+fixture_git_init --template "$repo_dir/dotgit"
 
-# TODO: Test `git am`
+  # when we cherry-pick with a merge conflict
+  #   Add conflicting commits
+  add_hello_world_commits
+  add_conflicting_branch
+  #   Perform our rebase, declare this branch the victor, and commit with default text
+  git cherry-pick master || true
+  git status
+  git checkout HEAD -- world.txt
+  git status
+  git commit
+  git status
+  git log
+  #   Wait for afplay.out to be written due to forking
+  sleep 0.1
+
+    # it plays our victory music
+    if ! test -f afplay.out; then
+      echo "\`victorious-git\` did not play upon rebase conflict resolution" 1>&2
+      exit 1
+    fi
