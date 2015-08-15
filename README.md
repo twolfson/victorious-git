@@ -166,8 +166,6 @@ To run the install test, use the `TEST_INSTALL` environment variable:
 TEST_INSTALL=TRUE test/index.sh
 ```
 
-// TODO: Test installs
-
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. See the [Testing section](#testing) on how to run tests.
 
