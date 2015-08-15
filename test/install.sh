@@ -13,25 +13,6 @@ fixture_git_init() {
   git init $* > /dev/null
 }
 
-# A fresh victorious-git installation
-rm -r ~/.config/victorious-git/
-"$repo_dir/bin/install.sh"
-
-  # when initializing a git directory
-  fixture_git_init
-
-    # has a hooks directory
-    if ! test -d .git/hooks; then
-      echo "\`git\` folder initialized with normal victorious-git doesn't have a hooks directory" 1>&2
-      exit 1
-    fi
-
-    # has hooks
-    if ! test -f .git/hooks/post-commit || ! test -f .git/hooks/pre-commit; then
-      echo "\`git\` folder initialized with normal victorious-git doesn't have our hooks" 1>&2
-      exit 1
-    fi
-
 # A normal victorious-git installation
 rm -r ~/.config/victorious-git/
 "$repo_dir/bin/install.sh"
