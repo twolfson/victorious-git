@@ -21,5 +21,6 @@ elif which mplayer &> /dev/null; then
   mplayer "$filepath" &> /dev/null
 else
   echo "No player found for \`victory.mp3\` playback =(" 1>&2
+  echo "Please verify either \`afplay\` or \`mplayer\` is installed" 1>&2
   exit 1
 fi
