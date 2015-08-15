@@ -36,7 +36,7 @@ We are overriding the entire `.git/hooks` folder default ([typically full of sam
 The following installs `victorious-git` to `~/.config/victorious-git` and sets up a **user-wide** `init.templatedir`.
 
 ```bash
-(cd /tmp/ && git clone --depth 1 https://github.com/twolfson/victorious-git && cd victorious-git/ && bin/install.sh)
+(cd /tmp/ && (test -d victorious-git || git clone --depth 1 https://github.com/twolfson/victorious-git) && cd victorious-git/ && bin/install.sh)
 ```
 
 By default, this will play [Level win.wav by Tuudurt][level-win-page] from [freesound.org][] which is licensed under [CC0 (Public Domain)][CC0].
@@ -54,6 +54,16 @@ If you would like to provide your own music sample, this can be done via `VICTOR
 ```bash
 export VICTORIOUS_GIT_MUSIC_URL="http://my-server.com/path/to/music.mp3"
 (cd /tmp/ && git clone --depth 1 https://github.com/twolfson/victorious-git && cd victorious-git/ && bin/install.sh)
+```
+
+#### Test drive
+Feeling uncertain about installing `victorious-git`? Give it a test drive. The following script will set up a temporary `git` directory using `--template` (no global installation):
+
+```bash
+(cd /tmp/ && (test -d victorious-git || git clone --depth 1 https://github.com/twolfson/victorious-git) && cd victorious-git/ && bin/test-drive.sh)
+# Creates new git repo at `/tmp/{random-dir}/`
+# Sets up branches ready to be conflicts
+# Outputs commands to let you pull the switch (e.g. `git merge`, `git commit`)
 ```
 
 ### Symlink installation
@@ -77,6 +87,8 @@ bin/install-symlink.sh
 ```bash
 git clone https://github.com/twolfson/victorious-git
 cd victorious-git/
+bin/overwrite-git-hooks.sh "~/github/*"
+# This command expands into:
 bin/overwrite-git-hooks.sh "~/github/*"
 ```
 
