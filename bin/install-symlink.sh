@@ -3,7 +3,9 @@
 set -e
 
 # If our template directory already exists, explain and error out
-dotgit_source="$PWD/dotgit"
+bin_dir="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
+repo_dir="$(dirname "$bin_dir")"
+dotgit_source="$repo_dir/dotgit"
 dotgit_target="~/.config/victorious-git/dotgit"
 dotgit_target_expanded="$HOME/.config/victorious-git/dotgit"
 templatedir_target="~/.config/victorious-git/templatedir"

@@ -3,8 +3,9 @@
 set -e
 
 # Save the path to our template directory
-repo_dir="$PWD"
-templatedir="$PWD/dotgit"
+bin_dir="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
+repo_dir="$(dirname "$bin_dir")"
+templatedir="$repo_dir/dotgit"
 
 # Generate a demo folder
 demo_dir="/tmp/victorious-git-demo"
