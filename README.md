@@ -159,7 +159,7 @@ Tests can be run via the following command:
 test/index.sh
 ```
 
-By default, we disable `test/install.sh` which runs installation tests on a user. This command has the potential to destroy existing setups.
+By default, we disable `test/install.sh` which runs installation tests as the current user. That test suite has the potential to destroy existing setups.
 
 To run the install test, use the `TEST_INSTALL` environment variable:
 
