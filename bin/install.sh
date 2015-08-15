@@ -18,7 +18,7 @@ cp "$dotgit_source" "$dotgit_target"
 set +x
 
 # Download our music
-./install-music.sh "$dotgit_target/hooks/"
+./install-music.sh "$dotgit_target/hooks/victory.mp3"
 
 # Set up our global templatedir
 set -x

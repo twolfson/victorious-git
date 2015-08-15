@@ -7,7 +7,7 @@ filepath="$1"
 if test "$filepath" = ""; then
   echo "No filepath was specified for \`$0\`" 1>&2
   echo "Usage: $0 [filepath]" 1>&2
-  exit
+  exit 1
 fi
 
 # Determine which player is supported and play from it
