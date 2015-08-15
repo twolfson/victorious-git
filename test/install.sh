@@ -13,4 +13,28 @@ fixture_git_init() {
   git init $* > /dev/null
 }
 
-# Clean up existing installations
+# A fresh victorious-git installation
+  # when initializing a git directory
+    # has a hooks directory
+    # has hooks
+
+# A normal victorious-git installation
+  # when initializing a git directory
+    # has a static hooks directory
+    # has a static hooks
+
+# A symlink victorious-git installation
+  # when initializing a git directory
+    # has a symlinked hooks directory
+    # has a static hooks
+
+# A normal victorious-git installation on an existing install
+  # when initializing a git directory
+    # has a static hooks directory
+    # has a static hooks
+
+# A symlink victorious-git installation on an existing install
+  # when initializing a git directory
+    # has a symlinked hooks directory
+    # has a static hooks
+    # has no extra files
