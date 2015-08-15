@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-# On merge conflict actions (e.g. fighting merge conflicts)
+# On merge conflict actions (e.g. fighting merge conflicts), play fanfar
 # DEV: We use a placeholder file because as of git@2, there is no long "Conflicts:" in the `git log`
 git_dir="$(git rev-parse --git-dir)"
 victory_occurred_filepath="$git_dir/hooks/__victory_occurred"
 if test -f "$victory_occurred_filepath"; then
-  # Play fanfare
-  "$git_dir/hooks/play-victory.sh" "$git_dir/hooks/victory.mp3"
+  "$git_dir/hooks/play-victory.sh" "$git_dir/hooks/victory.mp3" &
 fi
