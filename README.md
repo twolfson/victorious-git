@@ -15,7 +15,7 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
 - Play custom fanfare
 - Support for `git>=1.7` and `git>=2.0`
 
-![Screenshot](screenshot.png)
+![Screenshot](docs/screenshot.png)
 
 Fanfare: https://www.freesound.org/data/previews/258/258142_4631294-lq.mp3
 
