@@ -14,7 +14,7 @@ fixture_git_init() {
 }
 
 # A normal victorious-git installation
-if test -d "~/.config/victorious-git"; then rm -r ~/.config/victorious-git/; fi
+if test -d ~/.config/victorious-git; then rm -r ~/.config/victorious-git/; fi
 "$repo_dir/bin/install.sh"
 
   # when initializing a git directory
@@ -41,7 +41,7 @@ if test -d "~/.config/victorious-git"; then rm -r ~/.config/victorious-git/; fi
     fi
 
 # A symlink victorious-git installation
-if test -d "~/.config/victorious-git"; then rm -r ~/.config/victorious-git/; fi
+if test -d ~/.config/victorious-git; then rm -r ~/.config/victorious-git/; fi
 "$repo_dir/bin/install-symlink.sh"
 
   # when initializing a git directory
