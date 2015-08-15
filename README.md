@@ -99,8 +99,17 @@ _(Coming soon)_
 ## Examples
 _(Coming soon)_
 
+## Testing
+Tests can be run via the following command:
+
+```bash
+test/index.sh
+```
+
+By default, we disable `test/install.sh` which runs installation tests on a user. This command has the potential to destroy existing setups.
+
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via `npm run lint` and test via `npm test`.
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. See the [Testing section](#testing) on how to run tests.
 
 ## Donating
 Support this project and [others by twolfson][gratipay] via [gratipay][].
