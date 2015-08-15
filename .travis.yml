@@ -10,8 +10,8 @@ before_script:
   - apt-cache policy git # Determine git PPA source
   - git --version # Spit out the git version
 script:
-  # Run our tests
-  - test/index.sh
+  # Run all our tests
+  - TEST_INSTALL=TRUE test/index.sh
 
 notifications:
   email: false
