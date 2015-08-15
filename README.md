@@ -130,12 +130,26 @@ music_url="http://my-server.com/path/to/music.mp3"
 wget "$music_url" --output-document ~/.config/victorious-git/dotgit/hooks/victory.mp3
 ```
 
-// TODO: Complete me
-
 ### Volume
-VICTORIOUS_GIT_VOLUME="5"
+`victorious-git` attempts to use `afplay` and falls back to `mplayer` for its music playback. To determine if you are using `afplay`, run:
 
-// TODO: Complete me
+```bash
+# This will have output if we are using `afplay`
+which afplay
+```
+
+If `afplay` is being used, its volume can be set via `VICTORIOUS_GIT_VOLUME`. By default, this is 5.
+
+```bash
+export VICTORIOUS_GIT_VOLUME=10
+# Adjusts our `afplay -v 5` to `afplay -v 10`
+```
+
+To set this permanently for your user, it can be added to your `~/.bashrc`. This includes `zsh` users as all our scripts use a `bash` shebang (`#!`).
+
+```bash
+echo "export VICTORIOUS_GIT_VOLUME=10" >> ~/.bashrc
+```
 
 ## Testing
 Tests can be run via the following command:
