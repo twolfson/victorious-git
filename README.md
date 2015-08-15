@@ -117,7 +117,18 @@ done
 
 ## Configuration
 ### Music
-Upon installation, you should hear our sound play once. You can listen to
+Upon installation, you should hear our sound play once. You can listen to the current sound via:
+
+```bash
+~/.config/victorious-git/dotgit/hooks/play-victory.sh ~/.config/victorious-git/dotgit/hooks/victory.mp3
+```
+
+If you would like to update the installed music, this can be done via:
+
+```bash
+music_url="http://my-server.com/path/to/music.mp3"
+wget "$music_url" --output-document ~/.config/victorious-git/dotgit/hooks/victory.mp3
+```
 
 // TODO: Complete me
 
