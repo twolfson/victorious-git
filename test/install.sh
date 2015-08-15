@@ -43,7 +43,7 @@ if test -d ~/.config/victorious-git; then rm -r ~/.config/victorious-git/; fi
 
 # A symlink victorious-git installation
 if test -d ~/.config/victorious-git; then rm -r ~/.config/victorious-git/; fi
-"$repo_dir/bin/install-symlink.sh"
+"$repo_dir/bin/install-symlink.sh" &> /dev/null
 
   # when initializing a git directory
   fixture_git_init
