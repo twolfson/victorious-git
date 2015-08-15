@@ -101,8 +101,9 @@ To run this across multiple projects, we can use:
 ```bash
 # Iterate over each of our folders
 for repo_dir in {{glob}}; do
-# For example, I store all my projects in `~/github` so this would be:
-# for repo_dir in ~/github/*
+# For example, I store all my projects in `~/github` (e.g. `~/github/victorious-git`)
+#   so this would be:
+# for repo_dir in ~/github/*; do
     # Enter the folder
     cd "$repo_dir"
 
