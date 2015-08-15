@@ -14,8 +14,9 @@ fixture_git_init() {
 }
 
 # A normal victorious-git installation
+# DEV: If you are looking for where rogue sound comes from, it's from the install successes
 if test -d ~/.config/victorious-git; then rm -r ~/.config/victorious-git/; fi
-"$repo_dir/bin/install.sh"
+"$repo_dir/bin/install.sh" &> /dev/null
 
   # when initializing a git directory
   fixture_git_init
@@ -40,32 +41,32 @@ if test -d ~/.config/victorious-git; then rm -r ~/.config/victorious-git/; fi
       exit 1
     fi
 
-# A symlink victorious-git installation
-if test -d ~/.config/victorious-git; then rm -r ~/.config/victorious-git/; fi
-"$repo_dir/bin/install-symlink.sh"
+# # A symlink victorious-git installation
+# if test -d ~/.config/victorious-git; then rm -r ~/.config/victorious-git/; fi
+# "$repo_dir/bin/install-symlink.sh"
 
-  # when initializing a git directory
-  fixture_git_init
+#   # when initializing a git directory
+#   fixture_git_init
 
-    # has a symlinked hooks directory
-    if ! test -d .git/hooks; then
-      echo "\`git\` folder initialized with symlink victorious-git doesn't have a hooks directory" 1>&2
-      exit 1
-    fi
-    if ! test -h .git/hooks; then
-      echo "\`git\` folder initialized with symlink victorious-git doesn't use a symlink for its hooks directory" 1>&2
-      exit 1
-    fi
+#     # has a symlinked hooks directory
+#     if ! test -d .git/hooks; then
+#       echo "\`git\` folder initialized with symlink victorious-git doesn't have a hooks directory" 1>&2
+#       exit 1
+#     fi
+#     if ! test -h .git/hooks; then
+#       echo "\`git\` folder initialized with symlink victorious-git doesn't use a symlink for its hooks directory" 1>&2
+#       exit 1
+#     fi
 
-    # has a static hooks
-    if ! test -f .git/hooks/post-commit || ! test -f .git/hooks/pre-commit; then
-      echo "\`git\` folder initialized with symlink victorious-git doesn't have our hooks" 1>&2
-      exit 1
-    fi
-    if test -h .git/hooks/post-commit || test -h .git/hooks/pre-commit; then
-      echo "\`git\` folder initialized with symlink victorious-git had symlinks as its hooks" 1>&2
-      exit 1
-    fi
+#     # has a static hooks
+#     if ! test -f .git/hooks/post-commit || ! test -f .git/hooks/pre-commit; then
+#       echo "\`git\` folder initialized with symlink victorious-git doesn't have our hooks" 1>&2
+#       exit 1
+#     fi
+#     if test -h .git/hooks/post-commit || test -h .git/hooks/pre-commit; then
+#       echo "\`git\` folder initialized with symlink victorious-git had symlinks as its hooks" 1>&2
+#       exit 1
+#     fi
 
 # A normal victorious-git installation on an existing install
   # when initializing a git directory
