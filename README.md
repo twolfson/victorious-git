@@ -92,28 +92,12 @@ bin/overwrite-git-hooks.sh "~/github/*"
 bin/overwrite-git-hooks.sh "~/github/*"
 ```
 
-###
-
-
 ## Configuration
 ### Music
 Upon installation, you should hear our sound play once. You can listen to
 
-
-## Upgrading
-```
-(cd /tmp/ && git clone --depth 1 https://github.com/twolfson/victorious-git && cd victorious-git && bin/upgrade.sh)
-# Only `rm hooks/*` so that both normal and symlinks work
-```
-
-
-## Documentation
-_(Coming soon)_
-
+### Volume
 VICTORIOUS_GIT_VOLUME="5"
-
-## Examples
-_(Coming soon)_
 
 ## Testing
 Tests can be run via the following command:
@@ -127,7 +111,7 @@ By default, we disable `test/install.sh` which runs installation tests on a user
 To run the install test, use the `TEST_INSTALL` environment variable:
 
 ```bash
-test/index.sh
+TEST_INSTALL=TRUE test/index.sh
 ```
 
 ## Contributing
