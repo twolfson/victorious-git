@@ -94,5 +94,18 @@ fixture_git_init --template "$repo_dir/dotgit"
       exit 1
     fi
 
-# TODO: Test with rebase
-# TODO: Test with cherry pick
+# A git directory initialized with victorious-git
+  # when we rebase without a merge conflict
+    # it does not play our victory music
+
+# A git directory initialized with victorious-git
+  # when we rebase with a merge conflict
+    # it plays our victory music
+
+# A git directory initialized with victorious-git
+  # when we cherry-pick without a merge conflict
+    # it does not play our victory music
+
+# A git directory initialized with victorious-git
+  # when we cherry-pick with a merge conflict
+    # it plays our victory music
