@@ -56,24 +56,6 @@ export VICTORIOUS_GIT_MUSIC_URL="http://my-server.com/path/to/music.mp3"
 (cd /tmp/ && git clone --depth 1 https://github.com/twolfson/victorious-git && cd victorious-git/ && bin/install.sh)
 ```
 
-#### Expanded format
-The following commands are the expanded format of what occurs above:
-
-```bash
-# Navigate to a temporary location
-cd /tmp/
-
-# Clone our repository
-git clone --depth 1 https://github.com/twolfson/victorious-git
-cd victorious-git/
-
-# Run our install script
-bin/install.sh
-```
-
-### Previewing/changing music
-Upon installation, you should hear our sound play once
-
 ### Symlink installation
 By using symlinks, we can retroactively apply changes to `victorious-git` bound repositories (e.g. upgrades, changing music).
 
@@ -91,13 +73,6 @@ cd victorious-git/
 bin/install-symlink.sh
 ```
 
-As with the normal install, `install-symlink.sh` supports `VICTORIOUS_GIT_MUSIC_URL` as well:
-
-```bash
-export VICTORIOUS_GIT_MUSIC_URL="http://my-server.com/path/to/music.mp3"
-bin/install-symlink.sh
-```
-
 ### Adding `victorious-git` to existing repositories
 ```bash
 git clone https://github.com/twolfson/victorious-git
@@ -107,7 +82,13 @@ bin/overwrite-git-hooks.sh "~/github/*"
 
 ###
 
-### Upgrading
+
+## Configuration
+### Music
+Upon installation, you should hear our sound play once. You can listen to
+
+
+## Upgrading
 ```
 (cd /tmp/ && git clone --depth 1 https://github.com/twolfson/victorious-git && cd victorious-git && bin/upgrade.sh)
 # Only `rm hooks/*` so that both normal and symlinks work
