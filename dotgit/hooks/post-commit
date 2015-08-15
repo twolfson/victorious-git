@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # On merge conflict actions (e.g. fighting merge conflicts), play fanfar
 # DEV: We use a placeholder file because as of git@2, there is no long "Conflicts:" in the `git log`
-if test "$NOISY" != ""; then set -x; fi
-
 git_dir="$(git rev-parse --git-dir)"
 victory_occurred_filepath="$git_dir/hooks/__victory_occurred"
 if test -f "$victory_occurred_filepath"; then
