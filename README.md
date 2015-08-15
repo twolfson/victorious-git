@@ -146,7 +146,7 @@ export VICTORIOUS_GIT_VOLUME=10
 # Adjusts our `afplay -v 5` to `afplay -v 10`
 ```
 
-To set this permanently for your user, it can be added to your `~/.bashrc`. This includes `zsh`/`fish`/etc users as all our scripts invoke a `bash` via a shebang (`#!`).
+To set this permanently for your user, it can be added to your `~/.bashrc`. This includes `zsh`/`fish`/etc users as all our scripts invoke `bash` via a shebang (`#!`).
 
 ```bash
 echo "export VICTORIOUS_GIT_VOLUME=10" >> ~/.bashrc
