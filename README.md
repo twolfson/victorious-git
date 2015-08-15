@@ -58,7 +58,7 @@ Feeling uncertain about installing `victorious-git`? Give it a test drive. The f
 
 ```bash
 (cd /tmp/ && (test -d victorious-git || git clone --depth 1 https://github.com/twolfson/victorious-git) && cd victorious-git/ && bin/test-drive.sh)
-# Creates new git repo at `/tmp/{random-dir}/`
+# Creates new git repo at `/tmp/victorious-git-demo/`
 # Sets up branches ready to be conflicts
 # Outputs commands to let you pull the switch (e.g. `git merge`, `git commit`)
 ```
