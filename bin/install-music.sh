@@ -30,5 +30,5 @@ if test "$VICTORIOUS_GIT_MUSIC_URL" != ""; then
 fi
 
 # Download our default music
-default_music_url="https://www.freesound.org/data/previews/258/258142_4631294-lq.mp3"
+default_music_url="http://www.myinstants.com/media/sounds/ffvi-fanfare.mp3"
 wget "$default_music_url" --output-document "$filepath"

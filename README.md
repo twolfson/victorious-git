@@ -17,7 +17,7 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
 
 ![Screenshot](docs/screenshot.png)
 
-Fanfare: https://www.freesound.org/data/previews/258/258142_4631294-lq.mp3
+Fanfare: http://www.myinstants.com/media/sounds/ffvi-fanfare.mp3
 
 ## Warning
 Before we get to the fun part (runnning this), we should cover what's going on and the reprecussions. We are using a setting in `git` known as `init.templatedir`. As the name implies, this is a folder that is used to initialize all future `.git` folders.
@@ -38,20 +38,19 @@ The following installs `victorious-git` to `~/.config/victorious-git` and sets u
 (cd /tmp/ && (test -d victorious-git || git clone --depth 1 https://github.com/twolfson/victorious-git) && cd victorious-git/ && bin/install.sh)
 ```
 
-By default, this will play [Level win.wav by Tuudurt][level-win-page] from [freesound.org][] which is licensed under [CC0 (Public Domain)][CC0].
+By default, we will play the [Final Fantasy VI fanfare][ff-fanfare].
 
-[level-win-page]: https://www.freesound.org/people/Tuudurt/sounds/258142/
-[freesound.org]: https://www.freesound.org/
-[CC0]: http://creativecommons.org/publicdomain/zero/1.0/
+Alternative sounds can be downloaded during installation via `VICTORIOUS_GIT_MUSIC_URL`. Here's an example with [The Legend of Zelda's item get][zelda-item-get]:
 
-https://www.freesound.org/data/previews/258/258142_4631294-lq.mp3
-
-If you would like to provide your own music sample, this can be done via `VICTORIOUS_GIT_MUSIC_URL`:
+[ff-fanfare]: http://www.myinstants.com/instant/ff-vi-fanfare/
+[zelda-item-get]: http://www.myinstants.com/instant/zelda-item-get/
 
 ```bash
-export VICTORIOUS_GIT_MUSIC_URL="http://my-server.com/path/to/music.mp3"
+export VICTORIOUS_GIT_MUSIC_URL="http://www.myinstants.com/media/sounds/139-item-catch.mp3"
 (cd /tmp/ && (test -d victorious-git || git clone --depth 1 https://github.com/twolfson/victorious-git) && cd victorious-git/ && bin/install.sh)
 ```
+
+If you would like to update an existing installation's sounds, please see the [Music section](#music).
 
 #### Test drive
 Feeling uncertain about installing `victorious-git`? Give it a test drive. The following script will set up a temporary `git` directory using `--template` (no global installation):
@@ -127,7 +126,7 @@ Upon installation, you should hear our sound play once. You can listen to the cu
 If you would like to update the installed music, this can be done via:
 
 ```bash
-music_url="http://my-server.com/path/to/music.mp3"
+music_url="http://www.myinstants.com/media/sounds/139-item-catch.mp3"
 wget "$music_url" --output-document ~/.config/victorious-git/dotgit/hooks/victory.mp3
 ```
 
