@@ -15,7 +15,9 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
 - Play custom fanfare
 - Support for `git>=1.7` and `git>=2.0`
 
-// TODO: Record screencast (or override "afplay" to say "MUSIC IS PLAYING" in GIF recording)
+![Screenshot](screenshot.png)
+
+Fanfare: https://www.freesound.org/data/previews/258/258142_4631294-lq.mp3
 
 ## Warning
 Before we get to the fun part (runnning this), we should cover what's going on and the reprecussions. We are using a setting in `git` known as `init.templatedir`. As the name implies, this is a folder that is used to initialize all future `.git` folders.
@@ -43,8 +45,6 @@ By default, this will play [Level win.wav by Tuudurt][level-win-page] from [free
 [CC0]: http://creativecommons.org/publicdomain/zero/1.0/
 
 https://www.freesound.org/data/previews/258/258142_4631294-lq.mp3
-
-// TODO: We should be able to link to the original sound since it's personal use though...
 
 If you would like to provide your own music sample, this can be done via `VICTORIOUS_GIT_MUSIC_URL`:
 
