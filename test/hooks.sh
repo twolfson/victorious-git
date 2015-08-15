@@ -189,13 +189,10 @@ fixture_git_init --template "$repo_dir/dotgit"
   # when we cherry-pick with a merge conflict
   #   Add conflicting commits
   add_hello_world_commits
-  export NOISY="TRUE"
   add_conflicting_branch
   #   Perform our cherry-pick, declare this branch the victor, and commit with default text
-  export NOISY="TRUE"
   git cherry-pick master &> /dev/null || true; git checkout master -- world.txt; git commit --no-edit &> /dev/null
   #   Wait for afplay.out to be written due to forking
-  export NOISY=""
   sleep 0.1
 
     # it plays our victory music
