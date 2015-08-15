@@ -16,7 +16,9 @@ for test_script in $(ls $test_scripts); do
   out_filepath="$test_script.out"
   # Run our test
   echo "Running test: $test_script" 1>&2
+  set +e
   "$test_script" &> "$out_filepath"
+  set -e
 
   # Determine if it passed/failed
   exit_code="$?"
