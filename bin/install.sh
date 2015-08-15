@@ -14,15 +14,16 @@ fi
 
 # Copy over our dotgit
 set -x
-cp "$dotgit_source" "$dotgit_target"
+mkdir -p "$(dirname "$dotgit_target")"
+cp -R "$dotgit_source" "$dotgit_target"
 set +x
 
 # Download our music
-./install-music.sh "$dotgit_target/hooks/victory.mp3"
+bin/install-music.sh "$dotgit_target/hooks/victory.mp3"
 
 # Set up our global templatedir
 set -x
-git config --global --set init.templatedir "$dotgit_target"
+git config --global init.templatedir "$dotgit_target"
 set +x
 
 # Notify the user of success
