@@ -15,9 +15,6 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
 - Play custom fanfare
 - Support for `git>=1.7` and `git>=2.0`
 
-// TODO: Enable Travis CI
-// TODO: Make sure we are testing git>=1.7 and git>=2.0
-
 // TODO: Define `play-victory.sh` to test out new sounds
 
 // TODO: Record screencast (or override "afplay" to say "MUSIC IS PLAYING" in GIF recording)
@@ -107,6 +104,12 @@ test/index.sh
 ```
 
 By default, we disable `test/install.sh` which runs installation tests on a user. This command has the potential to destroy existing setups.
+
+To run the install test, use the `TEST_INSTALL` environment variable:
+
+```bash
+test/index.sh
+```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. See the [Testing section](#testing) on how to run tests.
