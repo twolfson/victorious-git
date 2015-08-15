@@ -19,7 +19,6 @@ if test "$GIT_VERSION" = "1.7"; then
 # Otherwise, if we are using git@1.8, then do nothing
 elif test "$GIT_VERSION" = "1.8"; then
   # Assert the git version is correct (e.g. "git version 1.8.5.6")
-  # TODO: Test assertion failures all at the end
   git_version="$(git --version)"
   if ! (echo "$git_version" | grep -E "^git version 1.8"); then
     echo "Expected \`git --version\` to be \"1.8\" but it was \"$git_version\"" 1>&2
