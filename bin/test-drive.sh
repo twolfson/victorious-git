@@ -4,14 +4,16 @@ set -e
 set -x
 
 # Save the path to our template directory
+repo_dir="$PWD"
 templatedir="$PWD/dotgit"
 
 # Generate a temporary folder
 tmp_dir="$(mktemp -d)"
 cd "$tmp_dir"
 
-# Generate a new repository
+# Generate a new repository and install music to it
 git init --template "$templatedir"
+"$repo_dir/bin/install-music.sh" "$tmp_dir/.git/hooks/victory.mp3"
 
 # Set up merge conflicts
 #   Add "hello" and "world" files on `master` in 2 consecutive commits
