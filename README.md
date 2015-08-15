@@ -182,8 +182,6 @@ This project is inspired by @DanaDanger's  `victorious-merge`.
 
 The linked sound clips are not owned, hosted, nor licensed by this repository. By downloading them, you are agreeing that they are exclusively for personal use and the maintainers of this repository are not legally responsible for any consequences.
 
-https://www.freesound.org/people/Tuudurt/sounds/258142/
-
 ## Unlicense
 As of Jul 21 2015, Todd Wolfson has released this repository and its contents to the public domain.
 
