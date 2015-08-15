@@ -17,6 +17,15 @@ add_hello_world_commits() {
   #   Add "hello" and "world" files on `master` in 2 consecutive commits
   echo "hello" > hello.txt; git add hello.txt; git commit -m "Added hello file" > /dev/null
   echo "world" > world.txt; git add world.txt; git commit -m "Added world file" > /dev/null
+}
+
+add_nonconflicting_branch() {
+  #   Add nonconflicting "moon" file on alternative branch
+  git checkout HEAD~1 &> /dev/null; git checkout -b dev/nonconflicting.branch &> /dev/null
+  echo "moon" > moon.txt; git add moon.txt; git commit -m "Added moon file" > /dev/null
+}
+
+add_conflicting_branch() {
   #   Add conflicting "world" file on alternative branch
   git checkout HEAD~1 &> /dev/null; git checkout -b dev/conflicting.branch &> /dev/null
   echo "wurld" > world.txt; git add world.txt; git commit -m "Added wurld file" > /dev/null
@@ -46,9 +55,28 @@ fixture_git_init --template "$repo_dir/dotgit"
 # A git directory initialized with victorious-git
 fixture_git_init --template "$repo_dir/dotgit"
 
+  # when we merge but have no merge conflict
+  #   Generate our nonconflicting commits
+  add_hello_world_commits
+  add_conflicting_branch
+  #   Perform our merge
+  git merge master &> /dev/null
+  #   Wait for afplay.out to be written due to forking
+  sleep 0.1
+
+    # it doesn't play our victory music upon success
+    if test -f afplay.out; then
+      echo "\`victorious-git\` played fanfare on a non-conflicting merge" 1>&2
+      exit 1
+    fi
+
+# A git directory initialized with victorious-git
+fixture_git_init --template "$repo_dir/dotgit"
+
   # when we commit with a merge conflict
   #   Generate our conflicting commits
   add_hello_world_commits
+  add_conflicting_branch
   #   Perform our merge, declare this branch the victor, and commit with default text
   git merge master &> /dev/null || true; git checkout HEAD -- world.txt; git commit --no-edit &> /dev/null
   #   Wait for afplay.out to be written due to forking
@@ -65,6 +93,7 @@ fixture_git_init --template "$repo_dir/dotgit"
 
   # when we commit with a merge conflict but the commit fails (e.g. due to lack of a commit message)
   add_hello_world_commits
+  add_conflicting_branch
   #   Force an empty commit message via `cat /dev/null` (empty string) piped to stdin of `git commit -F -` (use stdin as message)
   git merge master &> /dev/null || true; git checkout HEAD -- world.txt; cat /dev/null | git commit -F - &> /dev/null || true
   #   Wait for afplay.out to be written due to forking
@@ -80,6 +109,7 @@ fixture_git_init --template "$repo_dir/dotgit"
 fixture_git_init --template "$repo_dir/dotgit"
   # when we commit with a merge conflict but the commit fails and we make a non-conflicting commit
   add_hello_world_commits
+  add_conflicting_branch
   git merge master &> /dev/null || true; git checkout HEAD -- world.txt; cat /dev/null | git commit -F - &> /dev/null || true
   #  Exit our merge state
   git reset --hard &> /dev/null; git checkout master &> /dev/null
