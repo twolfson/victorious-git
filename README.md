@@ -31,7 +31,7 @@ We are overriding the entire `.git/hooks` folder default ([typically full of sam
 
 **Please take caution and be aware that this will adjust future `.git/hooks` interactions, such as before/after commits occur.**
 
-## Getting Started
+## Installation
 ### One line install
 The following installs `victorious-git` to `~/.config/victorious-git` and sets up a **user-wide** `init.templatedir`.
 
@@ -47,25 +47,56 @@ By default, this will play [Level win.wav by Tuudurt][level-win-page] from [free
 
 https://www.freesound.org/data/previews/258/258142_4631294-lq.mp3
 
-### Expanded format
+// TODO: We should be able to link to the original sound since it's personal use though...
 
-```
-# TODO: Download sound
-# TODO: Allow sound customization
-# TODO: install.sh
-target_dir="~/.config/victorious-git/templatedir/"
-mkdir -p "$target_dir"
-cp hooks/* "$target_dir"
-"$target_dir/hooks/play-victory.sh" # Congrats on successful install ;)
+If you would like to provide your own music sample, this can be done via `VICTORIOUS_GIT_MUSIC_URL`:
+
+```bash
+export VICTORIOUS_GIT_MUSIC_URL="http://my-server.com/path/to/music.mp3"
+(cd /tmp/ && git clone --depth 1 https://github.com/twolfson/victorious-git && cd victorious-git/ && bin/install.sh)
 ```
 
-- TODO: Base off of `sexy-bash-prompt`
-- TODO: During installation, install hooks via git-template-dir
-    - Prob make `hooks/` our main directory (e.g. our `lib/`)?
-- TODO: Include instructions on symlinking `hooks` directory for future updates
-- TODO: Allow for overriding with custom sound file during install
-- TODO: List out cases we cover (e.g. merge, rebase?, cherry-pick?)
-- TODO: Add tests with custom player (effectively `true` or maybe script that writes out to a file?)
+#### Expanded format
+The following commands are the expanded format of what occurs above:
+
+```bash
+# Navigate to a temporary location
+cd /tmp/
+
+# Clone our repository
+git clone --depth 1 https://github.com/twolfson/victorious-git
+cd victorious-git/
+
+# Run our install script
+bin/install.sh
+```
+
+### Previewing/changing music
+Upon installation, you should hear our sound play once
+
+### Symlink installation
+By using symlinks, we can retroactively apply changes to `victorious-git` bound repositories (e.g. upgrades, changing music).
+
+**This is very dangerous because it effectively makes all `.git` repositories share the same `hooks/` folder. This means adding a hook in `~/repo1/.git/hooks/prepare-commit-msg` will add the hook to `~/repo2/.git/hooks`.**
+
+```bash
+# Navigate to a temporary location
+cd /tmp/
+
+# Clone our repository
+git clone --depth 1 https://github.com/twolfson/victorious-git
+cd victorious-git/
+
+# Run our symlink install script
+bin/install-symlink.sh
+```
+
+As with the normal install, `install-symlink.sh` supports `VICTORIOUS_GIT_MUSIC_URL` as well:
+
+```bash
+export VICTORIOUS_GIT_MUSIC_URL="http://my-server.com/path/to/music.mp3"
+bin/install-symlink.sh
+```
 
 ### Adding `victorious-git` to existing repositories
 ```bash
@@ -74,29 +105,12 @@ cd victorious-git/
 bin/overwrite-git-hooks.sh "~/github/*"
 ```
 
+###
+
 ### Upgrading
 ```
 (cd /tmp/ && git clone --depth 1 https://github.com/twolfson/victorious-git && cd victorious-git && bin/upgrade.sh)
 # Only `rm hooks/*` so that both normal and symlinks work
-```
-
-### Living with symlinks
-By using symlinks, we can retroactively apply changes to `victorious-git` bound repositories upon upgrade.
-
-This is very dangerous because it effectively makes all `.git` repositories share the same `hooks/` folder. This means adding a hook in `~/repo1/.git/hooks/prepare-commit-msg` will add the hook to `~/repo2/.git/hooks`.
-
-#### One line install
-```
-git clone https://github.com/twolfson/victorious-git
-cd victorious-git/
-USE_SYMLINKS=TRUE bin/install.sh
-```
-
-### Adding `victorious-git` to existing repositories
-```bash
-git clone https://github.com/twolfson/victorious-git
-cd victorious-git/
-USE_SYMLINKS=TRUE bin/overwrite-git-hooks.sh "~/github/*"
 ```
 
 
