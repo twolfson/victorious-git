@@ -15,9 +15,6 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
 - Play custom fanfare
 - Support for `git>=1.7` and `git>=2.0`
 
-// TODO: Define `play-victory.sh` to test out new sounds
-//   We can prob give people `touch .git/hooks/__victory_occurred && .git/hooks/post-commit`
-
 // TODO: Record screencast (or override "afplay" to say "MUSIC IS PLAYING" in GIF recording)
 
 ## Warning
@@ -83,6 +80,8 @@ cd victorious-git/
 bin/install-symlink.sh
 ```
 
+// TODO: Implement me
+
 ### Adding `victorious-git` to existing repositories
 ```bash
 git clone https://github.com/twolfson/victorious-git
@@ -92,12 +91,18 @@ bin/overwrite-git-hooks.sh "~/github/*"
 bin/overwrite-git-hooks.sh "~/github/*"
 ```
 
+// TODO: Complete me
+
 ## Configuration
 ### Music
 Upon installation, you should hear our sound play once. You can listen to
 
+// TODO: Complete me
+
 ### Volume
 VICTORIOUS_GIT_VOLUME="5"
+
+// TODO: Complete me
 
 ## Testing
 Tests can be run via the following command:
