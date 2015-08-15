@@ -13,6 +13,8 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
 - Cross-platform support on GNU/Linux and OS X
 - Play custom fanfare
 - Support for `git>=1.7` and `git>=2.0`
+- MailChimp newsletter to receive updates
+    - http://eepurl.com/bwaPZj
 
 ![Screenshot](docs/screenshot.png)
 
