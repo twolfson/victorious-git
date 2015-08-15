@@ -1,19 +1,23 @@
 #!/usr/bin/env bash
 # Exit upon first failure and output commands
 set -e
-set -x
 
 # Save the path to our template directory
 repo_dir="$PWD"
 templatedir="$PWD/dotgit"
 
-# Generate a temporary folder
-tmp_dir="$(mktemp -d)"
-cd "$tmp_dir"
+# Generate a demo folder
+demo_dir="/tmp/victorious-git-demo"
+if test -d "$demo_dir"; then
+  rm -rf "$demo_dir"
+fi
+mkdir "$demo_dir"
+cd "$demo_dir"
 
 # Generate a new repository and install music to it
+set -x
 git init --template "$templatedir"
-"$repo_dir/bin/install-music.sh" "$tmp_dir/.git/hooks/victory.mp3"
+"$repo_dir/bin/install-music.sh" "$demo_dir/.git/hooks/victory.mp3"
 
 # Set up merge conflicts
 #   Add "hello" and "world" files on `master` in 2 consecutive commits
@@ -25,11 +29,11 @@ echo "wurld" > world.txt; git add world.txt; git commit -m "Added wurld file" > 
 
 # Notify user of their test drive being ready to go
 set +x
-echo "Your \`victorious-git\` test drive has been set up at \"$tmp_dir\""
+echo "Your \`victorious-git\` test drive has been set up at \"$demo_dir\""
 echo "To trigger a merge conflict and play some fanfare run the following commands:"
 echo ""
 echo "# Navigate to our test drive directory"
-echo "cd \"$tmp_dir\""
+echo "cd \"$demo_dir\""
 echo ""
 echo "# Introduction to our conflicting branches"
 echo "#   via git-extras' git-show-tree https://github.com/tj/git-extras/blob/3.0.0/bin/git-show-tree"
