@@ -24,7 +24,7 @@ cp -R "$dotgit_source" "$dotgit_target_expanded"
 
 # Download our music
 set +x
-bin/install-music.sh "$dotgit_target_expanded/hooks/victory.mp3"
+"$bin_dir/install-music.sh" "$dotgit_target_expanded/hooks/victory.mp3"
 
 # Generate an absolute path symlink to the expanded dir
 # DEV: We need an absolute path as the post-template `.git/hooks/`

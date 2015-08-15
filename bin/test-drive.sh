@@ -18,7 +18,7 @@ cd "$demo_dir"
 # Generate a new repository and install music to it
 set -x
 git init --template "$templatedir"
-"$repo_dir/bin/install-music.sh" "$demo_dir/.git/hooks/victory.mp3"
+"$bin_dir/install-music.sh" "$demo_dir/.git/hooks/victory.mp3"
 
 # Set up merge conflicts
 #   Add "hello" and "world" files on `master` in 2 consecutive commits

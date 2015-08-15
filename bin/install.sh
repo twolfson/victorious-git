@@ -22,7 +22,7 @@ cp -R "$dotgit_source" "$dotgit_target_expanded"
 
 # Download our music
 set +x
-bin/install-music.sh "$dotgit_target_expanded/hooks/victory.mp3"
+"$bin_dir/install-music.sh" "$dotgit_target_expanded/hooks/victory.mp3"
 
 # Set up our global templatedir
 set -x
