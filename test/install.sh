@@ -69,12 +69,21 @@ if test -d ~/.config/victorious-git; then rm -r ~/.config/victorious-git/; fi
     fi
 
 # A normal victorious-git installation on an existing install
-  # when initializing a git directory
-    # has a static hooks directory
-    # has a static hooks
+if test -d ~/.config/victorious-git; then rm -r ~/.config/victorious-git/; fi
+"$repo_dir/bin/install.sh" &> /dev/null
+
+  # it complains to the user and exits
+  if ! "$repo_dir/bin/install.sh" &> /dev/null; then
+    echo "Normal installation on an existing installation didn't fail" 1>&2
+    exit 1
+  fi
 
 # A symlink victorious-git installation on an existing install
-  # when initializing a git directory
-    # has a symlinked hooks directory
-    # has a static hooks
-    # has no extra files
+if test -d ~/.config/victorious-git; then rm -r ~/.config/victorious-git/; fi
+"$repo_dir/bin/install-symlink.sh" &> /dev/null
+
+  # it complains to the user and exits
+  if ! "$repo_dir/bin/install-symlink.sh" &> /dev/null; then
+    echo "Symlink installation on an existing installation didn't fail" 1>&2
+    exit 1
+  fi
