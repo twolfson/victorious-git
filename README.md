@@ -8,8 +8,8 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
 
 - Plays fanfare on resolution of `git` conflicts from:
     - [x] `merge`
-    - [ ] `rebase` (pending testing)
-    - [ ] `cherry-pick` (pending testing)
+    - [ ] `rebase`
+    - [ ] `cherry-pick`
 - Doesn't play fanfare on trivial merge (i.e. no conflicts/conflicts automatically resolved)
 - Cross-platform support on GNU/Linux and OS X
 - Play custom fanfare
