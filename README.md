@@ -16,6 +16,7 @@ This is heavily inspired by @DanaDanger's `victorious-merge`
 - Support for `git>=1.7` and `git>=2.0`
 
 // TODO: Define `play-victory.sh` to test out new sounds
+//   We can prob give people `touch .git/hooks/__victory_occurred && .git/hooks/post-commit`
 
 // TODO: Record screencast (or override "afplay" to say "MUSIC IS PLAYING" in GIF recording)
 https://www.freesound.org/people/Tuudurt/sounds/258142/
@@ -39,6 +40,15 @@ The following installs `victorious-git` to `~/.config/victorious-git` and sets u
 ```bash
 (cd /tmp/ && git clone --depth 1 https://github.com/twolfson/victorious-git && cd victorious-git/ && bin/install.sh)
 ```
+
+By default, this will play [Level win.wav by Tuudurt][level-win-page] from [freesound.org][].
+
+[level-win-page]: https://www.freesound.org/people/Tuudurt/sounds/258142/
+[freesound.org]: https://www.freesound.org/
+
+https://www.freesound.org/data/previews/258/258142_4631294-lq.mp3
+
+### Expanded format
 
 ```
 # TODO: Download sound
@@ -121,6 +131,13 @@ Support this project and [others by twolfson][gratipay] via [gratipay][].
 
 [gratipay-badge]: https://cdn.rawgit.com/gratipay/gratipay-badge/2.x.x/dist/gratipay.png
 [gratipay]: https://www.gratipay.com/twolfson/
+
+## Attribution
+This project is inspired by @DanaDanger's  `victorious-merge`.
+
+Our default sound file comes is by Tuudurt on [freesound.org][].
+
+https://www.freesound.org/people/Tuudurt/sounds/258142/
 
 ## Unlicense
 As of Jul 21 2015, Todd Wolfson has released this repository and its contents to the public domain.
