@@ -18,16 +18,16 @@ for test_script in $(ls $test_scripts); do
   echo "Running test: $test_script" 1>&2
   set +e
   "$test_script" &> "$out_filepath"
-  set -e
 
   # Determine if it passed/failed
   exit_code="$?"
+  set -e
   if test "$exit_code" != "0"; then
     echo "$test_script had non-zero exit code \"$exit_code\". Here's its output:" 1>&2
     cat "$out_filepath"
     exit 1
   fi
-  if test "$(cat $out_filepath)" != ""; then
+  if test "$(cat "$out_filepath")" != ""; then
     echo "$test_script had non-empty output. Here's its output:" 1>&2
     cat "$out_filepath"
     exit 1
