@@ -14,6 +14,7 @@ fi
 
 # Copy over our dotgit
 set -x
+cp "$dotgit_source" "$dotgit_target"
 set +x
 
 # Download our music
@@ -21,6 +22,7 @@ set +x
 
 # Set up our global templatedir
 set -x
+git config --global --set init.templatedir "$dotgit_target"
 set +x
 
 # Notify the user of success
