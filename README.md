@@ -96,26 +96,6 @@ git init
 ls .git/hooks/
 ```
 
-To run this across multiple projects, we can use:
-
-```bash
-# Iterate over each of our folders
-for repo_dir in {{glob}}; do
-# For example, I store all my projects in `~/github` (e.g. `~/github/victorious-git`)
-#   so this would be:
-# for repo_dir in ~/github/*; do
-    # Enter the folder
-    cd "$repo_dir"
-
-    # Reinitialize our hooks
-    rm -r .git/hooks/
-    git init
-
-    # Exit the folder
-    cd -
-done
-```
-
 ## Configuration
 ### Music
 Upon installation, you should hear our sound play once. You can listen to the current sound via:
