@@ -5,12 +5,5 @@ git_dir="$(git rev-parse --git-dir)"
 victory_occurred_filepath="$git_dir/hooks/__victory_occurred"
 if test -f "$victory_occurred_filepath"; then
   # Play fanfare
-  fanfare="$git_dir/hooks/victory.mp3"
-  if which afplay &> /dev/null; then
-    afplay -v 5 "$fanfare" &> /dev/null &
-  elif which mplayer &> /dev/null; then
-    mplayer "$fanfare" &> /dev/null &
-  else
-    echo "No player found for \`victory.mp3\` playback =(" 1>&2
-  fi
+  "$git_dir/hooks/play-victory.sh" "$git_dir/hooks/victory.mp3"
 fi
