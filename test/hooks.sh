@@ -152,13 +152,8 @@ fixture_git_init --template "$repo_dir/dotgit"
   add_conflicting_branch
   #   Perform our rebase, declare this branch the victor, and commit with default text
   conflicting_branch="$(git symbolic-ref --short HEAD)"
-  git rebase master || true
-  git status || true
-  git checkout "$conflicting_branch" -- world.txt || true
-  git add world.txt || true
-  cat world.txt || true
-  git status || true
-  git rebase --continue || true
+  git rebase master &> /dev/null || true; git checkout "$conflicting_branch" -- world.txt; git add world.txt
+  git rebase --continue &>/dev/null
   #   Wait for afplay.out to be written due to forking
   sleep 0.1
 
@@ -175,3 +170,5 @@ fixture_git_init --template "$repo_dir/dotgit"
 # A git directory initialized with victorious-git
   # when we cherry-pick with a merge conflict
     # it plays our victory music
+
+# TODO: Test `git am`
