@@ -180,7 +180,7 @@ Support this project and [others by twolfson][gratipay] via [gratipay][].
 ## Attribution
 This project is inspired by @DanaDanger's  `victorious-merge`.
 
-Our default sound file comes is by Tuudurt on [freesound.org][].
+The linked sound clips are not owned, hosted, nor licensed by this repository. By downloading them, you are agreeing that they are exclusively for personal use and the maintainers of this repository are not legally responsible for any consequences.
 
 https://www.freesound.org/people/Tuudurt/sounds/258142/
 
