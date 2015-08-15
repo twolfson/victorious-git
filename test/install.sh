@@ -13,8 +13,10 @@ fixture_git_init() {
   git init $* > /dev/null
 }
 
+# Override sound player to prevent sound from successful installs
+export PATH="$test_dir/test-files/bin:$PATH"
+
 # A normal victorious-git installation
-# DEV: If you are looking for where rogue sound comes from, it's from the install successes
 if test -d ~/.config/victorious-git; then rm -r ~/.config/victorious-git/; fi
 "$repo_dir/bin/install.sh" &> /dev/null
 
@@ -73,7 +75,7 @@ if test -d ~/.config/victorious-git; then rm -r ~/.config/victorious-git/; fi
 "$repo_dir/bin/install.sh" &> /dev/null
 
   # it complains to the user and exits
-  if ! "$repo_dir/bin/install.sh" &> /dev/null; then
+  if "$repo_dir/bin/install.sh" &> /dev/null; then
     echo "Normal installation on an existing installation didn't fail" 1>&2
     exit 1
   fi
@@ -83,7 +85,7 @@ if test -d ~/.config/victorious-git; then rm -r ~/.config/victorious-git/; fi
 "$repo_dir/bin/install-symlink.sh" &> /dev/null
 
   # it complains to the user and exits
-  if ! "$repo_dir/bin/install-symlink.sh" &> /dev/null; then
+  if "$repo_dir/bin/install-symlink.sh" &> /dev/null; then
     echo "Symlink installation on an existing installation didn't fail" 1>&2
     exit 1
   fi
