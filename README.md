@@ -50,7 +50,7 @@ If you would like to provide your own music sample, this can be done via `VICTOR
 
 ```bash
 export VICTORIOUS_GIT_MUSIC_URL="http://my-server.com/path/to/music.mp3"
-(cd /tmp/ && git clone --depth 1 https://github.com/twolfson/victorious-git && cd victorious-git/ && bin/install.sh)
+(cd /tmp/ && (test -d victorious-git || git clone --depth 1 https://github.com/twolfson/victorious-git) && cd victorious-git/ && bin/install.sh)
 ```
 
 #### Test drive
