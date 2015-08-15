@@ -41,10 +41,11 @@ The following installs `victorious-git` to `~/.config/victorious-git` and sets u
 (cd /tmp/ && git clone --depth 1 https://github.com/twolfson/victorious-git && cd victorious-git/ && bin/install.sh)
 ```
 
-By default, this will play [Level win.wav by Tuudurt][level-win-page] from [freesound.org][].
+By default, this will play [Level win.wav by Tuudurt][level-win-page] from [freesound.org][] which is licensed under [CC0 (Public Domain)][CC0].
 
 [level-win-page]: https://www.freesound.org/people/Tuudurt/sounds/258142/
 [freesound.org]: https://www.freesound.org/
+[CC0]: http://creativecommons.org/publicdomain/zero/1.0/
 
 https://www.freesound.org/data/previews/258/258142_4631294-lq.mp3
 
