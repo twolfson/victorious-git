@@ -1,4 +1,6 @@
 # victorious-git changelog
+1.2.3 - Added local `test-installed.sh` script for post-install validation
+
 1.2.2 - Added release script
 
 1.2.1 - Added newsletter and adjusted README content
