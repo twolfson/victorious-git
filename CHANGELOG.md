@@ -1,4 +1,6 @@
 # victorious-git changelog
+1.2.2 - Added release script
+
 1.2.1 - Added newsletter and adjusted README content
 
 1.2.0 - Added rebase support
