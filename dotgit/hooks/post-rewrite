@@ -3,6 +3,6 @@
 # If there is a rebase safety ref (i.e. there was a non-smooth conflict)
 #   then, play victory music
 git_dir="$(git rev-parse --git-dir)"
-if test "$1" = "rebase" && test -f "$git_dir/rebase-apply/abort-safety"; then
+if test "$1" = "rebase" && test -f "$git_dir/rebase-apply/patch-merge-index"; then
   "$git_dir/hooks/play-victory.sh" "$git_dir/hooks/victory.mp3" &
 fi

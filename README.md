@@ -132,6 +132,17 @@ To set this permanently for your user, it can be added to your `~/.bashrc`. This
 echo "export VICTORIOUS_GIT_VOLUME=10" >> ~/.bashrc
 ```
 
+## Development
+We strongly recommend performing all development via `tests`. It becomes cumbersome to setup and re-setup different `git` scenarios without them.
+
+Here are some common techniques:
+
+If you would like to inspect the state of a test fixture (e.g. a debugger), then you can place an `exit` as well as echo out the `tmp_dir` in `fixture_git_init`.
+
+If you would like to compare different states of `git` folders, then run `ls` against the respective folders you want to inspect (e.g. `.git/rebase`).
+
+If you would like to see which `git` hooks run in a scenario, then add in all possible variations with an `echo` and see which ones run.
+
 ## Testing
 Tests can be run via the following command:
 
