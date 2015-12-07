@@ -133,7 +133,7 @@ fixture_git_init --template "$repo_dir/dotgit"
   add_hello_world_commits
   add_nonconflicting_branch
   #   Perform our rebase
-  git rebase master &> /dev/null
+  git rebase master
   #   Wait for afplay.out to be written due to forking
   sleep 0.1
 
