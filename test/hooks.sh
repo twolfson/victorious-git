@@ -152,8 +152,8 @@ fixture_git_init --template "$repo_dir/dotgit"
   add_conflicting_branch
   #   Perform our rebase, declare this branch the victor, and commit with default text
   conflicting_branch="$(git symbolic-ref HEAD)"
-  git rebase master &> /dev/null || true; git checkout "$conflicting_branch" -- world.txt; git add world.txt
-  git rebase --continue &>/dev/null
+  git rebase master || true; git checkout "$conflicting_branch" -- world.txt; git add world.txt
+  git rebase --continue
   #   Wait for afplay.out to be written due to forking
   sleep 0.1
 
