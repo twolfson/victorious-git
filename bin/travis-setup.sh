@@ -3,24 +3,8 @@
 set -e
 set -x
 
-# If we are using git@1.7, then remove the existing git and install the Ubuntu default
-if test "$GIT_VERSION" = "1.7"; then
-  # Remove `git-core@1.9` PPA (Travis CI uses this by default)
-  # http://askubuntu.com/questions/307/how-can-ppas-be-removed
-  # https://launchpad.net/ubuntu/+source/git
-  # DEV: We found the `ppa` via `ls /etc/apt/sources.list.d/` and `cat /etc/apt/sources.list.d/*`
-  sudo apt-get update
-  sudo apt-get install ppa-purge
-  sudo ppa-purge -y "ppa:git-core/ppa"
-
-  # Assert the git version is correct (e.g. "git version 1.7.9.5")
-  git_version="$(git --version)"
-  if ! (echo "$git_version" | grep -E "^git version 1.7"); then
-    echo "Expected \`git --version\` to be \"1.7\" but it was \"$git_version\"" 1>&2
-    exit 1
-  fi
-# Otherwise, if we are using git@1.9, then do nothing
-elif test "$GIT_VERSION" = "1.9"; then
+# If we are using git@1.9, then do nothing
+if test "$GIT_VERSION" = "1.9"; then
   # Assert the git version is correct (e.g. "git version 1.9.5.6")
   git_version="$(git --version)"
   if ! (echo "$git_version" | grep -E "^git version 1.9"); then
