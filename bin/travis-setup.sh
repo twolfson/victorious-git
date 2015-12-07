@@ -9,8 +9,9 @@ if test "$GIT_VERSION" = "1.7"; then
   # https://launchpad.net/ubuntu/+source/git
   sudo apt-get -y update
   sudo apt-get install -y ppa-purge
-  dpkg -s git
-  dpkg -s git-core
+  ls /etc/apt/sources.list.d/
+  echo 'hi'
+  cat /etc/apt/sources.list.d/*
   # dpkg --list | grep git
   sudo ppa-purge -y "ppa:git-core/v1.9"
 
