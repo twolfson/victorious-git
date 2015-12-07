@@ -5,11 +5,11 @@ set -x
 
 # If we are using git@1.7, then remove the existing git and install the Ubuntu default
 if test "$GIT_VERSION" = "1.7"; then
-  # Remove `git-core@1.8` PPA (Travis CI uses this by default)
+  # Remove `git-core@1.9` PPA (Travis CI uses this by default)
   # https://launchpad.net/ubuntu/+source/git
   sudo apt-get -y update
   sudo apt-get install -y ppa-purge
-  sudo ppa-purge -y "ppa:git-core/v1.8"
+  sudo ppa-purge -y "ppa:git-core/v1.9"
 
   # Assert the git version is correct (e.g. "git version 1.7.9.5")
   git_version="$(git --version)"
@@ -17,12 +17,12 @@ if test "$GIT_VERSION" = "1.7"; then
     echo "Expected \`git --version\` to be \"1.7\" but it was \"$git_version\"" 1>&2
     exit 1
   fi
-# Otherwise, if we are using git@1.8, then do nothing
-elif test "$GIT_VERSION" = "1.8"; then
-  # Assert the git version is correct (e.g. "git version 1.8.5.6")
+# Otherwise, if we are using git@1.9, then do nothing
+elif test "$GIT_VERSION" = "1.9"; then
+  # Assert the git version is correct (e.g. "git version 1.9.5.6")
   git_version="$(git --version)"
-  if ! (echo "$git_version" | grep -E "^git version 1.8"); then
-    echo "Expected \`git --version\` to be \"1.8\" but it was \"$git_version\"" 1>&2
+  if ! (echo "$git_version" | grep -E "^git version 1.9"); then
+    echo "Expected \`git --version\` to be \"1.9\" but it was \"$git_version\"" 1>&2
     exit 1
   fi
 # Otherwise, if we are using git@2.x, then use `git` from a new PPA
