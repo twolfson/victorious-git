@@ -2,7 +2,7 @@ language: bash
 sudo: required # Require sudo for `apt` customization
 env:
   - GIT_VERSION="1.7" # Ubuntu Precise stable
-  - GIT_VERSION="1.8" # Default `git` provided by Travis CI
+  - GIT_VERSION="1.9" # Default `git` provided by Travis CI
   - GIT_VERSION="2.x" # git@2.x
 
 before_script:
