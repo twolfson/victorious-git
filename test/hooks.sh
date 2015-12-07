@@ -125,40 +125,40 @@ export PATH="$test_dir/test-files/bin:$PATH"
 #       exit 1
 #     fi
 
-# A git directory initialized with victorious-git
-fixture_git_init --template "$repo_dir/dotgit"
-
-  # when we rebase without a merge conflict
-  #   Add nonconflicting commits
-  add_hello_world_commits
-  add_nonconflicting_branch
-  #   Perform our rebase
-  git rebase master
-  #   Wait for afplay.out to be written due to forking
-  sleep 0.1
-
-    # it doesn't play our victory music
-    if test -f afplay.out; then
-      echo "\`victorious-git\` played fanfare on a non-conflicting rebase" 1>&2
-      exit 1
-    fi
-
 # # A git directory initialized with victorious-git
 # fixture_git_init --template "$repo_dir/dotgit"
 
-#   # when we rebase with a merge conflict
-#   #   Add conflicting commits
+#   # when we rebase without a merge conflict
+#   #   Add nonconflicting commits
 #   add_hello_world_commits
-#   add_conflicting_branch
-#   #   Perform our rebase, declare this branch the victor, and commit with default text
-#   conflicting_branch="$(git symbolic-ref HEAD)"
-#   git rebase master &> /dev/null || true; git checkout "$conflicting_branch" -- world.txt; git add world.txt
-#   git rebase --continue &>/dev/null
+#   add_nonconflicting_branch
+#   #   Perform our rebase
+#   git rebase master
 #   #   Wait for afplay.out to be written due to forking
 #   sleep 0.1
 
-#     # it plays our victory music
-#     if ! test -f afplay.out; then
-#       echo "\`victorious-git\` did not play upon rebase conflict resolution" 1>&2
+#     # it doesn't play our victory music
+#     if test -f afplay.out; then
+#       echo "\`victorious-git\` played fanfare on a non-conflicting rebase" 1>&2
 #       exit 1
 #     fi
+
+# A git directory initialized with victorious-git
+fixture_git_init --template "$repo_dir/dotgit"
+
+  # when we rebase with a merge conflict
+  #   Add conflicting commits
+  add_hello_world_commits
+  add_conflicting_branch
+  #   Perform our rebase, declare this branch the victor, and commit with default text
+  conflicting_branch="$(git symbolic-ref HEAD)"
+  git rebase master &> /dev/null || true; git checkout "$conflicting_branch" -- world.txt; git add world.txt
+  git rebase --continue &>/dev/null
+  #   Wait for afplay.out to be written due to forking
+  sleep 0.1
+
+    # it plays our victory music
+    if ! test -f afplay.out; then
+      echo "\`victorious-git\` did not play upon rebase conflict resolution" 1>&2
+      exit 1
+    fi
