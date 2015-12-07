@@ -6,14 +6,12 @@ set -x
 # If we are using git@1.7, then remove the existing git and install the Ubuntu default
 if test "$GIT_VERSION" = "1.7"; then
   # Remove `git-core@1.9` PPA (Travis CI uses this by default)
+  # http://askubuntu.com/questions/307/how-can-ppas-be-removed
   # https://launchpad.net/ubuntu/+source/git
-  sudo apt-get -y update
-  sudo apt-get install -y ppa-purge
-  ls /etc/apt/sources.list.d/
-  echo 'hi'
-  cat /etc/apt/sources.list.d/*
-  # dpkg --list | grep git
-  sudo ppa-purge -y "ppa:git-core/v1.9"
+  # DEV: We found the `ppa` via `ls /etc/apt/sources.list.d/` and `cat /etc/apt/sources.list.d/*`
+  sudo apt-get update
+  sudo apt-get install ppa-purge
+  sudo ppa-purge -y "ppa:git-core/ppa"
 
   # Assert the git version is correct (e.g. "git version 1.7.9.5")
   git_version="$(git --version)"
