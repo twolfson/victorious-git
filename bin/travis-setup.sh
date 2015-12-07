@@ -7,6 +7,7 @@ set -x
 if test "$GIT_VERSION" = "1.7"; then
   # Remove `git-core@1.8` PPA (Travis CI uses this by default)
   # https://launchpad.net/ubuntu/+source/git
+  sudo apt-get -y update
   sudo apt-get install -y ppa-purge
   sudo ppa-purge -y "ppa:git-core/v1.8"
 
