@@ -1,4 +1,6 @@
 # victorious-git changelog
+1.4.1 - Replaced Gratipay with support me page
+
 1.4.0 - Repaired `git@2.x` support for `git-rebase`
 
 1.3.1 - Reverted 1.3.0 due to breaking `git@1.x`
